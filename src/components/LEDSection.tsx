@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export default function LEDSection() {
   return (
-    <section id="led" className="py-16 border-b border-gray-800">
+    <section id="led" className="py-16">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -21,7 +21,7 @@ export default function LEDSection() {
                   ⚡ DISEÑO Y FABRICACIÓN PROPIA
                 </span>
                 <p className="text-xl text-gray-300 mt-3">
-                  Visualiza el tiempo de tu entrenamiento con este tablero LED personalizado, diseñado y fabricado desde cero, que integra perfectamente hardware y software para una experiencia de entrenamiento superior a bajo coste.
+                  Visualiza el tiempo de tu entrenamiento con este tablero LED personalizado, diseñado y fabricado desde cero, pensado para su integración completa en gimnasios y permitir entrenamientos en equipo con perfecta sincronización.
                 </p>
               </div>
               
@@ -70,7 +70,7 @@ export default function LEDSection() {
                   </div>
                   <div>
                     <h4 className="text-lg font-medium mb-1">Integración completa</h4>
-                    <p className="text-gray-400">Desarrollado con un enfoque integral de hardware y software, utilizando técnicas de fabricación como corte láser para ofrecer una solución completa y de bajo coste.</p>
+                    <p className="text-gray-400">Desarrollado con un enfoque integral de hardware y software para uso en gimnasios, permitiendo entrenamientos en equipo como TABATA donde los participantes pueden ver en la aplicación el ejercicio específico (ej. sentadillas) mientras el tablero marca el tiempo con perfecta sincronización.</p>
                   </div>
                 </div>
               </div>
@@ -89,7 +89,6 @@ export default function LEDSection() {
                   <div className="bg-[#111] rounded-xl p-4 flex flex-col items-center">
                     <div className="flex justify-between w-full mb-3">
                       <div className="text-primary-500 font-bold">LEDFIT</div>
-                      <div className="text-gray-300">Temporizador</div>
                     </div>
                     <div className="text-5xl font-bold text-white my-4 font-mono flex items-center gap-2">
                       <span className="bg-primary-900/50 p-2 rounded border border-primary-800">0</span>
