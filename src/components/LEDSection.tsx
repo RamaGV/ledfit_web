@@ -12,7 +12,7 @@ export default function LEDSection() {
           <div className="flex flex-col md:flex-row items-center gap-10">
             <div className="md:w-1/2 order-2 md:order-1">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Tablero LED sincronizado</h2>
-              <p className="text-xl text-gray-300 mb-6">Maximiza la eficiencia de tu entrenamiento con nuestro sistema de luces LED que se sincroniza perfectamente con tu teléfono.</p>
+              <p className="text-xl text-gray-300 mb-6">Visualiza el tiempo de tu entrenamiento con nuestro tablero LED de displays de 7 segmentos que muestra en tiempo real lo que ocurre en tu teléfono.</p>
               
               <div className="space-y-4 mb-6">
                 <div className="flex items-start gap-3">
@@ -22,8 +22,8 @@ export default function LEDSection() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium mb-1">Temporizador visible a distancia</h4>
-                    <p className="text-gray-400">Visualiza el tiempo de tus ejercicios sin necesidad de mirar tu teléfono, manteniéndote enfocado en tu entrenamiento.</p>
+                    <h4 className="text-lg font-medium mb-1">Displays de 7 segmentos</h4>
+                    <p className="text-gray-400">Visualiza claramente el tiempo de tus ejercicios en grandes números LED, sin necesidad de consultar constantemente tu teléfono.</p>
                   </div>
                 </div>
                 
@@ -34,8 +34,8 @@ export default function LEDSection() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium mb-1">Indicadores de intensidad</h4>
-                    <p className="text-gray-400">Colores cambiantes que indican la intensidad y fase de tu entrenamiento para una experiencia visual inmersiva.</p>
+                    <h4 className="text-lg font-medium mb-1">Marcador de secuencias</h4>
+                    <p className="text-gray-400">El tablero marca exactamente los tiempos de cada fase del entrenamiento que aparece en tu móvil, manteniendo perfecta sincronización.</p>
                   </div>
                 </div>
                 
@@ -46,8 +46,8 @@ export default function LEDSection() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium mb-1">Sincronización perfecta</h4>
-                    <p className="text-gray-400">Conexión inmediata entre tu dispositivo móvil y el tablero LED sin retrasos ni interrupciones.</p>
+                    <h4 className="text-lg font-medium mb-1">Fácil configuración</h4>
+                    <p className="text-gray-400">Conecta fácilmente tu tablero LED al teléfono y comienza a entrenar sin complicadas configuraciones técnicas.</p>
                   </div>
                 </div>
               </div>

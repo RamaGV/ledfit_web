@@ -1,3 +1,5 @@
+import { useImagesMap } from '../contexts/ImagesMapContext';
+
 interface WorkoutCardProps {
   imageUrl: string;
   title: string;
@@ -13,10 +15,11 @@ export default function WorkoutCard({
   level,
   className = "" 
 }: WorkoutCardProps) {
+  const { getImageForWorkout } = useImagesMap();
   return (
     <div className={`bg-darkgray rounded-2xl overflow-hidden border border-gray-800 relative group ${className}`}>
       <img 
-        src={imageUrl}
+        src={imageUrl.startsWith('http') ? imageUrl : getImageForWorkout(title)}
         alt={title} 
         className="w-full h-48 object-cover"
       />

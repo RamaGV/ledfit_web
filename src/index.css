@@ -27,6 +27,15 @@
     @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
   }
   
+  /* Esconde la barra de desplazamiento para el carrusel */
+  .hide-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+  
   /* Animaciones para elementos UI */
   .animate-fadeIn {
     animation: fadeIn 0.3s ease-in-out;

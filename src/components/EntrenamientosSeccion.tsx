@@ -1,9 +1,42 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import WorkoutCard from './WorkoutCard';
+import { useState, useEffect } from 'react';
 import FeatureCard from './FeatureCard';
+import WorkoutCarousel from './WorkoutCarousel';
+import WorkoutDetails from './WorkoutDetails';
+import { fetchFeaturedWorkouts } from '../services/workoutService';
+import { Workout } from '../types/workout';
 
 export default function EntrenamientosSeccion() {
+  const [workouts, setWorkouts] = useState<Workout[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [selectedWorkout, setSelectedWorkout] = useState<Workout | null>(null);
+
+  useEffect(() => {
+    const loadWorkouts = async () => {
+      try {
+        setLoading(true);
+        const data = await fetchFeaturedWorkouts();
+        setWorkouts(data);
+        // Selecciona el primer entrenamiento por defecto
+        if (data.length > 0) {
+          setSelectedWorkout(data[0]);
+        }
+      } catch (err) {
+        setError('Error al cargar los entrenamientos');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadWorkouts();
+  }, []);
+
+  const handleSelectWorkout = (workout: Workout) => {
+    setSelectedWorkout(workout);
+  };
+
   return (
     <>
       {/* Base de Datos de Entrenamientos */}
@@ -14,19 +47,17 @@ export default function EntrenamientosSeccion() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1 }}
           >
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-white">Base de Datos de Entrenamientos</h2>
-              <Link to="/entrenamientos" className="text-primary-400 hover:text-primary-300 transition-colors">
-                Ver todos
-              </Link>
+            <div className="flex flex-col items-end mb-10 text-right">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 relative">
+                Base de Datos de Entrenamientos
+                <span className="absolute -bottom-2 right-0 w-24 h-1 bg-accent"></span>
+              </h2>
+              <p className="text-gray-300 max-w-2xl">
+                Accede a nuestra colección de entrenamientos personalizados para el tablero LED
+              </p>
             </div>
             
             <div className="mb-8">
-              <p className="text-gray-300 mb-4">
-                Accede a nuestra base de datos con más de 100 entrenamientos personalizados, 
-                organizados por nivel, tipo de ejercicio y objetivos específicos. Diseñados con base en el feedback de nuestra comunidad.
-              </p>
-              
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
                 <FeatureCard
                   variant="value"
@@ -48,46 +79,46 @@ export default function EntrenamientosSeccion() {
                   variant="value"
                   valueText="4"
                   title="Nuevos por semana"
-                  description="Entrenamientos basados en feedback de la comunidad"
+                  description="Compatibles con el tablero LED de 7 segmentos"
                   valueColor="text-primary-300"
                 />
               </div>
             </div>
             
-            <h3 className="text-xl font-semibold mb-4">Destacados</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-              {/* Workout Card 1 */}
-              <WorkoutCard
-                imageUrl="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                title="Rutina de Fuerza Total"
-                duration="9:10 min."
-                level="Intermedio"
-              />
-
-              {/* Workout Card 2 */}
-              <WorkoutCard
-                imageUrl="https://images.unsplash.com/photo-1594737625785-a6cbdabd333c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                title="CrossFit Intenso"
-                duration="5:25 min."
-                level="Avanzado"
-              />
-            </div>
-
-            {/* Difficulty Levels */}
-            <div className="flex gap-3 mb-6 overflow-x-auto pb-2">
-              <div className="level-badge level-beginner whitespace-nowrap">Principiante</div>
-              <div className="level-badge level-intermediate whitespace-nowrap">Intermedio</div>
-              <div className="level-badge level-advanced whitespace-nowrap">Avanzado</div>
+            <div className="mb-10">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-xl font-semibold">Destacados</h3>
+                <div className="flex gap-3 overflow-x-auto pb-2">
+                  <div className="px-3 py-1 text-xs font-medium rounded-full text-gray-900 bg-green-500 whitespace-nowrap">Principiante</div>
+                  <div className="px-3 py-1 text-xs font-medium rounded-full text-gray-900 bg-yellow-500 whitespace-nowrap">Intermedio</div>
+                  <div className="px-3 py-1 text-xs font-medium rounded-full text-gray-900 bg-red-500 whitespace-nowrap">Avanzado</div>
+                </div>
+              </div>
+              
+              {loading ? (
+                <div className="flex justify-center py-10">
+                  <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-primary-500"></div>
+                </div>
+              ) : error ? (
+                <div className="text-center py-10 text-red-500">{error}</div>
+              ) : (
+                <>
+                  <WorkoutCarousel 
+                    workouts={workouts} 
+                    onSelectWorkout={handleSelectWorkout} 
+                    selectedWorkoutId={selectedWorkout?._id || null} 
+                  />
+                  
+                  {selectedWorkout && (
+                    <div className="mt-8">
+                      <WorkoutDetails workout={selectedWorkout} />
+                    </div>
+                  )}
+                </>
+              )}
             </div>
             
-            <div className="mt-8 text-center">
-              <Link 
-                to="/entrenamientos" 
-                className="px-6 py-3 rounded-full bg-gradient-to-r from-primary-600 to-accent text-white font-medium hover:opacity-90 transition-all"
-              >
-                Explorar base de datos completa
-              </Link>
-            </div>
+
           </motion.div>
         </div>
       </section>

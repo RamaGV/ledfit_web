@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
+import { ImagesMapProvider } from './contexts/ImagesMapContext'
 
 // Futuros componentes a crear
 import Navbar from './components/NavBar'
@@ -23,17 +24,19 @@ function App() {
   }
 
   return (
-    <div className={`min-h-screen ${darkMode ? 'dark bg-gray-900' : 'bg-white'}`}>
-      <Router>
-        <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-        <AnimatePresence mode="wait">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-          </Routes>
-        </AnimatePresence>
-        <Footer />
-      </Router>
-    </div>
+    <ImagesMapProvider>
+      <div className={`min-h-screen ${darkMode ? 'dark bg-gray-900' : 'bg-white'}`}>
+        <Router>
+          <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+          <AnimatePresence mode="wait">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+            </Routes>
+          </AnimatePresence>
+          <Footer />
+        </Router>
+      </div>
+    </ImagesMapProvider>
   )
 }
 
