@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply text-white bg-dark;
+    font-family: 'Inter', sans-serif;
+  }
+  /* Scrollbar personalizado */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-darkgray;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-700 rounded-full;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  }
+  
+  /* Animaciones para elementos UI */
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .btn {
+    @apply px-6 py-3 rounded-full font-medium transition-all duration-300 inline-flex items-center justify-center gap-2;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-600 to-primary-500 text-white hover:from-primary-700 hover:to-primary-600 hover:shadow-lg shadow-primary-500/20;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-gray-700 hover:border-primary-500 text-white hover:text-primary-500;
+  }
+  
+  .level-badge {
+    @apply px-4 py-1 rounded-full text-sm font-medium;
+  }
+  
+  .level-beginner {
+    @apply bg-primary-500 text-white;
+  }
+  
+  .level-intermediate {
+    @apply bg-darkgray text-white border border-gray-700;
+  }
+  
+  .level-advanced {
+    @apply bg-darkgray text-white border border-gray-700;
+  }
+  
+  /* Barra de navegación */
+  .navbar {
+    @apply bg-gray-900/90 backdrop-blur-md border-b border-gray-800 py-3 px-4 fixed top-0 left-0 right-0 z-50;
+  }
+  
+  /* Botón de descarga */
+  .download-btn {
+    @apply bg-gradient-to-r from-primary-500 to-purple-600 text-white px-5 py-2 rounded-lg font-medium hover:shadow-lg hover:shadow-primary-500/30 transition-all duration-300;
+  }
+}
