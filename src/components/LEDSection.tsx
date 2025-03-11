@@ -11,8 +11,19 @@ export default function LEDSection() {
         >
           <div className="flex flex-col md:flex-row items-center gap-10">
             <div className="md:w-1/2 order-2 md:order-1">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Tablero LED sincronizado</h2>
-              <p className="text-xl text-gray-300 mb-6">Visualiza el tiempo de tu entrenamiento con nuestro tablero LED de displays de 7 segmentos que muestra en tiempo real lo que ocurre en tu teléfono.</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-2 relative inline-block">
+                Tablero LED sincronizado
+                <span className="absolute -bottom-1 left-0 w-24 h-0.5 bg-blue-500"></span>
+              </h2>
+              
+              <div className="mt-4 mb-6">
+                <span className="bg-blue-900/30 text-blue-400 text-xs font-medium py-1 px-2 rounded-full mb-3 inline-block">
+                  ⚡ DISEÑO Y FABRICACIÓN PROPIA
+                </span>
+                <p className="text-xl text-gray-300 mt-3">
+                  Visualiza el tiempo de tu entrenamiento con este tablero LED personalizado, diseñado y fabricado desde cero, que integra perfectamente hardware y software para una experiencia de entrenamiento superior a bajo coste.
+                </p>
+              </div>
               
               <div className="space-y-4 mb-6">
                 <div className="flex items-start gap-3">
@@ -48,6 +59,18 @@ export default function LEDSection() {
                   <div>
                     <h4 className="text-lg font-medium mb-1">Fácil configuración</h4>
                     <p className="text-gray-400">Conecta fácilmente tu tablero LED al teléfono y comienza a entrenar sin complicadas configuraciones técnicas.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="icon-container mt-1 flex-shrink-0 text-blue-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-medium mb-1">Integración completa</h4>
+                    <p className="text-gray-400">Desarrollado con un enfoque integral de hardware y software, utilizando técnicas de fabricación como corte láser para ofrecer una solución completa y de bajo coste.</p>
                   </div>
                 </div>
               </div>
