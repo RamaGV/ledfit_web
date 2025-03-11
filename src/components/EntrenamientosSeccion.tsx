@@ -40,7 +40,7 @@ export default function EntrenamientosSeccion() {
   return (
     <>
       {/* Base de Datos de Entrenamientos */}
-      <section id="entrenamientos" className="py-12 bg-gray-900">
+      <section id="entrenamientos" className="py-12 bg-gray-900 border-b border-gray-800">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 10 }}

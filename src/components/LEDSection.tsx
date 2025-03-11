@@ -13,22 +13,13 @@ export default function LEDSection() {
             <div className="md:w-1/2 order-2 md:order-1">
               <h2 className="text-3xl md:text-4xl font-bold mb-2 relative inline-block">
                 Tablero LED sincronizado
-                <span className="absolute -bottom-1 left-0 w-24 h-0.5 bg-blue-500"></span>
+                <span className="absolute -bottom-1 left-0 w-24 h-1 bg-blue-500"></span>
               </h2>
               
-              <div className="mt-4 mb-6">
-                <span className="bg-blue-900/30 text-blue-400 text-xs font-medium py-1 px-2 rounded-full mb-3 inline-block">
-                  ⚡ DISEÑO Y FABRICACIÓN PROPIA
-                </span>
-                <p className="text-xl text-gray-300 mt-3">
-                  Visualiza el tiempo de tu entrenamiento con este tablero LED personalizado, diseñado y fabricado desde cero, pensado para su integración completa en gimnasios y permitir entrenamientos en equipo con perfecta sincronización.
-                </p>
-              </div>
-              
-              <div className="space-y-4 mb-6">
+              <div className="space-y-4 mb-6 pt-4 p-4">
                 <div className="flex items-start gap-3">
                   <div className="icon-container mt-1 flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
@@ -40,7 +31,7 @@ export default function LEDSection() {
                 
                 <div className="flex items-start gap-3">
                   <div className="icon-container mt-1 flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
                   </div>
@@ -52,7 +43,7 @@ export default function LEDSection() {
                 
                 <div className="flex items-start gap-3">
                   <div className="icon-container mt-1 flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                   </div>
@@ -62,22 +53,22 @@ export default function LEDSection() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
+                <div className="flex items-start justify-center gap-3">
                   <div className="icon-container mt-1 flex-shrink-0 text-blue-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                     </svg>
                   </div>
                   <div>
                     <h4 className="text-lg font-medium mb-1">Integración completa</h4>
-                    <p className="text-gray-400">Desarrollado con un enfoque integral de hardware y software para uso en gimnasios, permitiendo entrenamientos en equipo como TABATA donde los participantes pueden ver en la aplicación el ejercicio específico (ej. sentadillas) mientras el tablero marca el tiempo con perfecta sincronización.</p>
+                    <p className="text-gray-400">Desarrollado con un enfoque integral de hardware y software para uso en gimnasios, permitiendo entrenamientos en equipo como TABATA donde los participantes pueden ver en la aplicación el ejercicio mientras el tablero marca el tiempo con perfecta sincronización.</p>
                   </div>
                 </div>
               </div>
               
               <a href="#led-details" className="btn btn-primary rounded-full inline-flex items-center gap-2">
                 Más sobre el tablero LED
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </a>

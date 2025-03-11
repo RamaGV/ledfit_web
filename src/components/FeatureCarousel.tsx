@@ -108,7 +108,14 @@ export default function FeatureCarousel() {
       <div className="container-custom">
         <div className="text-center mb-16">
           <div className="relative inline-block">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Funcionalidades principales</h2>
+            <motion.h2
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-3xl md:text-4xl font-bold text-center mb-2"
+            >
+              Vistas de la Aplicación
+            </motion.h2>
             <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-green-500"></span>
           </div>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mt-6">
@@ -122,10 +129,10 @@ export default function FeatureCarousel() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIndex}
-                initial={{ opacity: 0 }}
+                initial={{ opacity: .5 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
+                transition={{ duration: 0.5, ease: "linear" }}
                 className="space-y-4"
               >
                 {/* El título y el borde siempre están presentes, solo cambia el contenido */}
@@ -139,17 +146,17 @@ export default function FeatureCarousel() {
                         animate="visible"
                         exit="exit"
                         variants={{
-                          hidden: { opacity: 0 },
+                          hidden: { opacity: .5 },
                           visible: { 
                             opacity: 1,
                             transition: {
-                              staggerChildren: 0.0001, // Más rápido para el título
+                              staggerChildren: 0.0005, // Más rápido para el título
                             }
                           },
                           exit: {
                             opacity: 0,
                             transition: {
-                              staggerChildren: 0.0005,
+                              staggerChildren: 0.001,
                               staggerDirection: -1,
                             }
                           }

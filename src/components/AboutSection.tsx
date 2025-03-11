@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-16 border-b border-gray-800">
+    <section id="about" className="py-16">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -43,7 +43,6 @@ export default function HomePage() {
       <EntrenamientosSeccion />
 
       {/* Separador */}
-      <div className="container mx-auto my-16 border-b border-gray-700 opacity-50"></div>
 
       {/* Acerca de Section - Centro */}
       <AboutSection />
