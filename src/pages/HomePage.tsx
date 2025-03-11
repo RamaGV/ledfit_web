@@ -1,8 +1,5 @@
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import AboutSection from '../components/AboutSection';
-import ContactSection from '../components/ContactSection';
 import Navbar from '../components/NavBar';
 import HeroSection from '../components/HeroSection';
 import FeatureCarousel from '../components/FeatureCarousel';
@@ -21,38 +18,37 @@ export default function HomePage() {
       {/* Navbar */}
       <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       
-      <div className="pt-24 pb-16">
       {/* Inicio Section */}
-      <HeroSection />
+      <div className="py-16">
+        <HeroSection />
+      </div>
 
+      {/* Tablero LED Section - Izquierda */}
+      <div id="led" className="py-4">
+        <LEDSection />
+      </div>
+      
+      {/* Separador */}
+      <div className="container mx-auto my-24 border-b border-gray-700 opacity-50"></div>
+      
       {/* Funciones Section - Centrado - Carrusel */}
-      <div id="funciones">
+      <div id="funciones" className="py-20">
         <FeatureCarousel />
       </div>
-      
-      {/* Separador */}
-      <div className="container mx-auto my-16 border-b border-gray-700 opacity-50"></div>
-      
-      {/* Tablero LED Section - Izquierda */}
-      <LEDSection />
 
       {/* Separador */}
-      <div className="container mx-auto my-16 border-b border-gray-700 opacity-50"></div>
+      <div className="container mx-auto my-24 border-b border-gray-700 opacity-50"></div>
 
       {/* Entrenamientos Section - Derecha */}
-      <EntrenamientosSeccion />
-
-      {/* Separador */}
-
-      {/* Acerca de Section - Centro */}
-      <AboutSection />
-      
-      {/* Separador */}
-      <div className="container mx-auto my-16 border-b border-gray-700 opacity-50"></div>
-      
-      {/* Contacto Section - Centro */}
-      <ContactSection />
+      <div id="entrenamientos" className="py-4">
+        <EntrenamientosSeccion />
       </div>
+
+      {/* Acerca de y Contacto Section */}
+      <div id="contact" className="py-4">
+        <AboutSection />
+      </div>
+      
     </div>
   );
 };

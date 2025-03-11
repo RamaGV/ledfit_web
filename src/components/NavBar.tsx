@@ -10,11 +10,9 @@ interface NavbarProps {
 // Definición de enlaces de navegación para reutilización
 const navigationLinks = [
   { href: '#inicio', label: 'Inicio' },
-  { href: '#funciones', label: 'Funciones' },
-  { href: '#led', label: 'Tablero LED' },
+  { href: '#led', label: 'Tablero' },
+  { href: '#funciones', label: 'Vistas' },
   { href: '#entrenamientos', label: 'Entrenamientos' },
-  { href: '#about', label: 'Acerca de' },
-  { href: '#contact', label: 'Contacto' }
 ];
 
 export default function Navbar({ darkMode = false, toggleDarkMode }: NavbarProps) {
@@ -38,7 +36,7 @@ export default function Navbar({ darkMode = false, toggleDarkMode }: NavbarProps
       <div className="absolute right-0 top-full mt-6 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 bg-darkgray rounded-xl p-3 shadow-lg border border-gray-700 z-50">
         <div className="w-full aspect-square bg-white p-2 rounded-lg mb-2">
           {/* Representación simplificada de un QR Code */}
-          <div className="w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IndoaXRlIi8+PHBhdGggZD0iTTAgMGgyMHYyMEgwVjB6IiBmaWxsPSJibGFjayIvPjxwYXRoIGQ9Ik0xODAgMGgyMHYyMGgtMjBWMHoiIGZpbGw9ImJsYWNrIi8+PHBhdGggZD0iTTAgMTgwaDIwdjIwSDBWMTgweiIgZmlsbD0iYmxhY2siLz48cGF0aCBkPSJNNDAgMHYyMGg0MFY2MEg0MHY0MGg2MFY2MEg4MFYyMGgyMFYwSDQweiIgZmlsbD0iYmxhY2siLz48cGF0aCBkPSJNMTQwIDBoLTIwdjYwaDQwVjIwaDIwdjIwaDIwVjBoLTYweiIgZmlsbD0iYmxhY2siLz48cGF0aCBkPSJNMCA0MGgyMHY0MEgwVjQweiIgZmlsbD0iYmxhY2siLz48cGF0aCBkPSJNMTIwIDQwdjIwaC0yMHY0MGgtMjB2NjBoMjB2LTQwaDQwdi00MGgyMFY0MGgtNDB6IiBmaWxsPSJibGFjayIvPjxwYXRoIGQ9Ik0xODAgNDBoMjB2NDBoLTIwVjQweiIgZmlsbD0iYmxhY2siLz48cGF0aCBkPSJNNDAgMTAwaDIwdjIwSDQwdi0yMHoiIGZpbGw9ImJsYWNrIi8+PHBhdGggZD0iTTE0MCAxMDBoNjB2NjBoLTIwdi00MGgtNDB2LTIweiIgZmlsbD0iYmxhY2siLz48cGF0aCBkPSJNMCAxMjBoMjB2NjBIMFYxMjB6IiBmaWxsPSJibGFjayIvPjxwYXRoIGQ9Ik02MCAxNDBoMjB2MjBINjB2LTIweiIgZmlsbD0iYmxhY2siLz48cGF0aCBkPSJNMTAwIDE0MHY0MGg0MHYyMGg0MHYtNjBoLTgweiIgZmlsbD0iYmxhY2siLz48L3N2Zz4=')]"></div>
+          <div className="w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IndoaXRlIi8+PHBhdGggZD0iTTAgMGgyMHYyMEgwVjB6IiBmaWxsPSJibGFjayIvPjxwYXRoIGQ9Ik0xODAgMGgyMHYyMGgtMjBWMHoiIGZpbGw9ImJsYWNrIi8+PHBhdGggZD0iTTAgMTgwaDIwdjIwSDBWMTgweiIgZmlsbD0iYmxhY2siLz48cGF0aCBkPSJNMjAwIDBoLTIwdjYwaDQwVjIwaDIwdjIwaDIwVjBoLTYweiIgZmlsbD0iYmxhY2siLz48cGF0aCBkPSJNMCA0MGgyMHY4MEgwVjQweiIgZmlsbD0iYmxhY2siLz48cGF0aCBkPSJNMCAxMDBoMjB2NjBIMFYxMjB6IiBmaWxsPSJibGFjayIvPjxwYXRoIGQ9Ik0xMjAgMTAwaDIwdjIwSDEyMFYxMDB6IiBmaWxsPSJibGFjayIvPjxwYXRoIGQ9Ik0xMjAgMjAwaDIwdjIwSDEyMFYyMDB6IiBmaWxsPSJibGFjayIvPjxwYXRoIGQ9Ik0xMjAgMzAwaDIwdjIwSDEyMFYzMDB6IiBmaWxsPSJibGFjayIvPjxwYXRoIGQ9Ik0xMjAgNDAwaDIwdjIwSDEyMFY0MDB6IiBmaWxsPSJibGFjayIvPjxwYXRoIGQ9Ik0xMjAgNTAwaDIwdjIwSDEyMFY1MDB6IiBmaWxsPSJibGFjayIvPjxwYXRoIGQ9Ik0xMjAgNjAwaDIwdjIwSDEyMFY2MDB6IiBmaWxsPSJibGFjayIvPjxwYXRoIGQ9Ik0xMjAgNzAwaDIwdjIwSDEyMFY3MDB6IiBmaWxsPSJibGFjayIvPjxwYXRoIGQ9Ik0xMjAgODAwaDIwdjIwSDEyMFY4MDB6IiBmaWxsPSJibGFjayIvPjxwYXRoIGQ9Ik0xMjAgOTAwLjAwMDAwMDE5MjggMjAwaDIwdjIwSDEyMFY5MDB6IiBmaWxsPSJibGFjayIvPjwvc3ZnPg==')]"></div>
         </div>
         <p className="text-xs text-center text-gray-300">Escanea para descargar</p>
       </div>
@@ -88,6 +86,10 @@ export default function Navbar({ darkMode = false, toggleDarkMode }: NavbarProps
                 label={link.label} 
               />
             ))}
+            
+            <div className="flex items-center">
+              <NavbarLink href="#contact" label="Contacto" />
+            </div>
           </div>
           
           {/* Botones de acciones a la derecha */}
@@ -127,6 +129,10 @@ export default function Navbar({ darkMode = false, toggleDarkMode }: NavbarProps
                 onClick={closeMobileMenu}
               />
             ))}
+            
+            <div className="flex items-center">
+              <NavbarLink href="#contact" label="Contacto" isMobile={true} onClick={closeMobileMenu} />
+            </div>
           </div>
         )}
       </div>

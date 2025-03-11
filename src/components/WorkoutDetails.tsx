@@ -24,7 +24,7 @@ export default function WorkoutDetails({ workout }: WorkoutDetailsProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="bg-gray-800 rounded-xl p-6 shadow-xl border border-gray-700 shadow-black/30"
+      className="bg-gray-800/70 rounded-xl p-6 shadow-xl shadow-black/30"
     >
       <div className="flex flex-col gap-6">
         {/* Contenido principal */}

@@ -67,13 +67,13 @@ export default function WorkoutCarousel({ workouts, onSelectWorkout, selectedWor
       {/* Carousel */}
       <div 
         ref={carouselRef}
-        className="flex overflow-x-auto pb-4 gap-4 hide-scrollbar" 
+        className="flex overflow-x-auto py-4 gap-4 hide-scrollbar overflow-hidden" 
         onScroll={handleScroll}
       >
         {workouts.map(workout => (
           <motion.div 
             key={workout._id}
-            className={`flex-shrink-0 w-[280px] cursor-pointer ${selectedWorkoutId === workout._id ? 'shadow-xl shadow-accent/20 scale-[1.03] z-10' : 'opacity-90'}`}
+            className={`flex-shrink-0 w-[300px] cursor-pointer hover:opacity-100  ${selectedWorkoutId === workout._id ? 'shadow-xl shadow-accent/5 scale-[1.05] z-5 opacity-100' : 'opacity-80'}`}
             animate={selectedWorkoutId === workout._id ? { y: -8 } : { y: 0 }}
             whileHover={{ scale: 1.02 }}
             onClick={() => onSelectWorkout(workout)}
@@ -83,6 +83,7 @@ export default function WorkoutCarousel({ workouts, onSelectWorkout, selectedWor
               title={workout.nombre}
               duration={workout.duration || formatDuration(workout.tiempoTotal)}
               level={workout.nivel}
+              grupo={workout.grupo}
             />
           </motion.div>
         ))}

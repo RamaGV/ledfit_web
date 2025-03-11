@@ -18,4 +18,5 @@ export interface Workout {
   
   // Propiedades adicionales para la UI (calculadas o mostradas diferente)
   duration?: string;
+  categoria?: string; // Categoría para filtrado (puede derivarse de 'grupo')
 }

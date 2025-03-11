@@ -1,71 +1,159 @@
 import { motion } from 'framer-motion';
+import InfoCard from './InfoCard';
+import TechCard from './TechCard';
+import { 
+  contactItems, 
+  socialLinks, 
+  techCards, 
+  type ContactItemData, 
+  type SocialLinkData, 
+  type TechCardData 
+} from '../data/contactData';
 
+// Componente para la información sobre Ledfit (columna izquierda)
+const AboutInfo = () => {
+  return (
+    <div className="md:pl-0">
+      <h3 className="text-2xl font-bold mb-6 border-b border-gray-700 pb-3">Acerca de Ledfit</h3>
+      <p className="text-gray-300 mb-8">
+        Ledfit es un innovador sistema de entrenamiento que combina un tablero LED interactivo 
+        que se sincroniza con una aplicación móvil, ofreciendo entrenamientos diseñados por 
+        entrenadores físicos profesionales.
+      </p>
+      
+      <div className="space-y-6">
+        <InfoCard title="Concepto">
+          <p>
+            Un tablero LED interactivo que se conecta a una aplicación móvil, permitiendo a los 
+            usuarios seguir rutinas de entrenamiento visuales y dinámicas, eliminando distracciones 
+            y maximizando la eficiencia de cada sesión.
+          </p>
+        </InfoCard>
+        
+        <InfoCard title="Tecnología">
+          <p>
+            Integración completa entre hardware especializado (tablero LED) y software avanzado 
+            (aplicación móvil y backend), permitiendo una sincronización en tiempo real y una 
+            experiencia de usuario fluida.
+          </p>
+        </InfoCard>
+        
+        <InfoCard title="Entrenamientos">
+          <p>
+            Rutinas diseñadas por entrenadores físicos profesionales que aprovechan al máximo 
+            las capacidades del tablero LED, optimizando cada movimiento y adaptándose a diferentes 
+            niveles de condición física.
+          </p>
+        </InfoCard>
+
+        <InfoCard title="Soporte">
+          <p>
+            Ofrecemos asistencia técnica para todos los usuarios de Ledfit. Si tienes algún problema 
+            con tu tablero LED o la aplicación, no dudes en contactarnos. También atendemos reclamos 
+            y sugerencias para mejorar tu experiencia con nuestros productos y servicios.
+          </p>
+        </InfoCard>
+      </div>
+    </div>
+  );
+};
+
+// Componente reutilizable para los ítems de contacto
+interface ContactItemProps {
+  data: ContactItemData;
+}
+
+const ContactItem = ({ data }: ContactItemProps) => {
+  return (
+    <div className="flex items-center gap-3">
+      <div className={`p-2 ${data.gradient} rounded-xl`}>
+        {data.icon}
+      </div>
+      <span className="text-gray-300">{data.text}</span>
+    </div>
+  );
+};
+
+// Componente reutilizable para los enlaces sociales
+interface SocialLinkProps {
+  data: SocialLinkData;
+}
+
+const SocialLink = ({ data }: SocialLinkProps) => {
+  return (
+    <a 
+      href={data.href} 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      className={`p-3 bg-gradient-to-r ${data.gradient} hover:${data.hoverGradient} transition-colors rounded-xl`}
+    >
+      {data.icon}
+    </a>
+  );
+};
+
+// Componente para la información de contacto (columna derecha)
+const ContactInfo = () => {
+  return (
+    <div className="md:pr-0">
+      <h3 className="text-2xl font-bold mb-6 border-b border-gray-700 pb-3">Contacto con el desarrollador</h3>
+      <p className="text-gray-300 mb-8">
+        Desarrollador full-stack especializado en la integración de hardware y software. 
+        Si te interesa mi trabajo o quieres colaborar en algún proyecto, no dudes en contactarme.
+      </p>
+      
+      <div className="space-y-4 mb-8">
+        {contactItems.map(item => (
+          <ContactItem key={item.id} data={item} />
+        ))}
+      </div>
+      
+      <div className="flex gap-4 mb-8">
+        {socialLinks.map(link => (
+          <SocialLink key={link.id} data={link} />
+        ))}
+      </div>
+      
+      <h4 className="text-lg font-bold mb-6 border-b border-gray-700 pb-3">Tecnologías aplicadas</h4>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {techCards.map(card => (
+          <TechCard
+            key={card.id}
+            title={card.title}
+            description={card.description}
+            repoUrl={card.repoUrl}
+            gradientColors={card.gradientColors}
+            iconComponent={card.iconComponent}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// Componente principal que combina las dos columnas
 const AboutSection = () => {
   return (
-    <section id="about" className="py-16">
+    <section id="contact" className="py-12">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Acerca de Ledfit</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">Creando una nueva experiencia de fitness para todos los niveles</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="space-y-6">
-                <div className="bg-darkgray p-5 rounded-xl border border-gray-800">
-                  <h4 className="text-xl font-semibold mb-2">Nuestra misión</h4>
-                  <p className="text-gray-400">Transformar la manera en que las personas se ejercitan mediante tecnología intuitiva que motive y optimice cada sesión de entrenamiento.</p>
-                </div>
-                
-                <div className="bg-darkgray p-5 rounded-xl border border-gray-800">
-                  <h4 className="text-xl font-semibold mb-2">Historia</h4>
-                  <p className="text-gray-400">Ledfit nació de la necesidad de crear una herramienta de entrenamiento que eliminara distracciones y maximizara la eficiencia en cada sesión. La combinación de nuestra app con el sistema LED ha revolucionado la experiencia fitness.</p>
-                </div>
-                
-                <div className="bg-darkgray p-5 rounded-xl border border-gray-800">
-                  <h4 className="text-xl font-semibold mb-2">Nuestros valores</h4>
-                  <div className="flex flex-wrap gap-2 mt-3">
-                    <span className="px-3 py-1 bg-primary-900/50 text-primary-300 rounded-full text-sm">Innovación</span>
-                    <span className="px-3 py-1 bg-primary-900/50 text-primary-300 rounded-full text-sm">Simplicidad</span>
-                    <span className="px-3 py-1 bg-primary-900/50 text-primary-300 rounded-full text-sm">Accesibilidad</span>
-                    <span className="px-3 py-1 bg-primary-900/50 text-primary-300 rounded-full text-sm">Comunidad</span>
-                    <span className="px-3 py-1 bg-primary-900/50 text-primary-300 rounded-full text-sm">Resultados</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div>
-              <div className="relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" 
-                  alt="Equipo Ledfit" 
-                  className="rounded-2xl shadow-lg border border-gray-800"
-                />
-                
-                <div className="absolute bottom-6 right-6 bg-darkgray p-4 rounded-xl border border-gray-800 shadow-lg max-w-xs">
-                  <div className="flex gap-3 items-center mb-2">
-                    <div className="p-1 rounded-full bg-primary-500 text-white">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </div>
-                    <span className="font-medium">Innovación constante</span>
-                  </div>
-                  <p className="text-sm text-gray-400">Actualizamos regularmente nuestras funciones basándonos en el feedback de los usuarios para mejorar su experiencia.</p>
-                </div>
-              </div>
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              {/* Columna izquierda - About Ledfit */}
+              <AboutInfo />
+              
+              {/* Columna derecha - Contacto con el desarrollador */}
+              <ContactInfo />
             </div>
           </div>
         </motion.div>
       </div>
     </section>
   );
-}
+};
 
 export default AboutSection;

@@ -5,7 +5,6 @@ import { ImagesMapProvider } from './contexts/ImagesMapContext'
 
 // Futuros componentes a crear
 import Navbar from './components/NavBar'
-import Footer from './components/Footer'
 
 // Páginas
 import HomePage from './pages/HomePage'
@@ -33,7 +32,6 @@ function App() {
               <Route path="/" element={<HomePage />} />
             </Routes>
           </AnimatePresence>
-          <Footer />
         </Router>
       </div>
     </ImagesMapProvider>

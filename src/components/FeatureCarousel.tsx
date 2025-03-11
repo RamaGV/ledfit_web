@@ -104,7 +104,7 @@ export default function FeatureCarousel() {
   };
   
   return (
-    <div className="overflow-hidden py-12">
+    <div className="overflow-hidden">
       <div className="container-custom">
         <div className="text-center mb-16">
           <div className="relative inline-block">
