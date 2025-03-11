@@ -6,8 +6,7 @@ import {
   socialLinks, 
   techCards, 
   type ContactItemData, 
-  type SocialLinkData, 
-  type TechCardData 
+  type SocialLinkData 
 } from '../data/contactData';
 
 // Componente para la información sobre Ledfit (columna izquierda)

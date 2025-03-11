@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { tableroFeatures } from '../data/TableroData';
 
 export default function LEDSection() {
   return (
@@ -17,53 +18,17 @@ export default function LEDSection() {
               </h2>
               
               <div className="space-y-4 mb-6 pt-4 p-4">
-                <div className="flex items-start gap-3">
-                  <div className="icon-container mt-1 flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+                {tableroFeatures.map((feature) => (
+                  <div key={feature.id} className="flex items-start gap-3">
+                    <div className={`icon-container mt-1 flex-shrink-0 ${feature.id === 'integracion' ? 'text-blue-400' : ''}`}>
+                      {feature.icon}
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-medium mb-1">{feature.title}</h4>
+                      <p className="text-gray-400">{feature.description}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-lg font-medium mb-1">Displays de 7 segmentos</h4>
-                    <p className="text-gray-400">Visualiza claramente el tiempo de tus ejercicios en grandes números LED, sin necesidad de consultar constantemente tu teléfono.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-3">
-                  <div className="icon-container mt-1 flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-medium mb-1">Marcador de secuencias</h4>
-                    <p className="text-gray-400">El tablero marca exactamente los tiempos de cada fase del entrenamiento que aparece en tu móvil, manteniendo perfecta sincronización.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-3">
-                  <div className="icon-container mt-1 flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-medium mb-1">Fácil configuración</h4>
-                    <p className="text-gray-400">Conecta fácilmente tu tablero LED al teléfono y comienza a entrenar sin complicadas configuraciones técnicas.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start justify-center gap-3">
-                  <div className="icon-container mt-1 flex-shrink-0 text-blue-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-medium mb-1">Integración completa</h4>
-                    <p className="text-gray-400">Desarrollado con un enfoque integral de hardware y software para uso en gimnasios, permitiendo entrenamientos en equipo como TABATA donde los participantes pueden ver en la aplicación el ejercicio mientras el tablero marca el tiempo con perfecta sincronización.</p>
-                  </div>
-                </div>
+                ))}
               </div>
               
               <a href="#led-details" className="btn btn-primary rounded-full inline-flex items-center gap-2">
@@ -81,17 +46,11 @@ export default function LEDSection() {
                     <div className="flex justify-between w-full mb-3">
                       <div className="text-primary-500 font-bold">LEDFIT</div>
                     </div>
-                    <div className="text-5xl font-bold text-white my-4 font-mono flex items-center gap-2">
+                    <div className="text-5xl font-bold text-white my-4 font-mono flex items-center gap-2 pb-4">
                       <span className="bg-primary-900/50 p-2 rounded border border-primary-800">0</span>
                       <span className="bg-primary-900/50 p-2 rounded border border-primary-800">1</span>:
                       <span className="bg-primary-900/50 p-2 rounded border border-primary-800">3</span>
                       <span className="bg-primary-900/50 p-2 rounded border border-primary-800">5</span>
-                    </div>
-                    <div className="flex gap-3 w-full justify-center">
-                      <div className="h-2 w-12 rounded-full bg-primary-600"></div>
-                      <div className="h-2 w-12 rounded-full bg-primary-600"></div>
-                      <div className="h-2 w-12 rounded-full bg-gray-600"></div>
-                      <div className="h-2 w-12 rounded-full bg-gray-600"></div>
                     </div>
                   </div>
                 </div>
