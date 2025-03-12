@@ -1,8 +1,8 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
-import progressCircularImg from '../assets/capturas/progressCircular.jpg';
-import logrosPersonalesImg from '../assets/capturas/logrosPersonales.jpg';
-import detallesDeEjerciciosImg from '../assets/capturas/detallesDeEjercicios.jpg';
+import progressCircularImg from '/images/capturas/progressCircular.jpg';
+import logrosPersonalesImg from '/images/capturas/logrosPersonales.jpg';
+import detallesDeEjerciciosImg from '/images/capturas/detallesDeEjercicios.jpg';
 
 interface FeatureContent {
   title: string;
@@ -77,16 +77,6 @@ export default function VistasSection() {
     }, 10000);
   };
   
-  // Obtener el orden correcto de las imágenes para el efecto coverflow
-  const getImageOrder = () => {
-    // Circular ordering para el carrusel
-    const ordering = [];
-    for (let i = 0; i < features.length; i++) {
-      ordering.push((activeIndex + i) % features.length);
-    }
-    return ordering;
-  }
-  
   // Obtener posición del carrusel
   const getImagePosition = (index: number) => {
     if (index === activeIndex) return 'center';
@@ -103,27 +93,47 @@ export default function VistasSection() {
     return index < activeIndex ? 'far-left' : 'far-right';
   };
   
+  // Añadimos indicadores de navegación en la parte inferior
+  const renderIndicators = () => {
+    return (
+      <div className="flex justify-center mt-8 gap-2">
+        {features.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => handleImageClick(idx)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              idx === activeIndex 
+                ? 'bg-primary-500 w-6' 
+                : 'bg-gray-600 hover:bg-gray-500'
+            }`}
+            aria-label={`Ver característica ${idx + 1}`}
+          />
+        ))}
+      </div>
+    );
+  };
+  
   return (
-    <div className="overflow-hidden">
-      <div className="container-custom">
-        <div className="text-center mb-0">
-          <div className="relative inline-block">
-            <motion.h2
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-3xl md:text-4xl font-bold text-center mb-2"
-            >
-              Vistas de la Aplicación
-            </motion.h2>
-            <span className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-green-500"></span>
+    <section id="funciones" className="relative overflow-hidden">
+      <div className="container-custom py-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-12"
+        >
+          <div className="flex flex-col items-center text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-2 relative inline-block">
+              Funcionalidades de la App
+              <span className="absolute -bottom-1 left-[40%] w-24 h-1 bg-green-500"></span>
+            </h2>
+            <p className="text-gray-300 max-w-2xl text-center">
+              Descubre todas las características que hacen de Ledfit la mejor opción para tus entrenamientos
+            </p>
           </div>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto mt-1">
-            Herramientas especializadas para entrenamiento eficiente con displays LED de 7 segmentos que te ayudan a seguir tu rutina.
-          </p>
-        </div>
+        </motion.div>
         
-        <div className="flex flex-col md:flex-row  items-center">
+        <div className="flex flex-col md:flex-row items-center">
           {/* Información detallada a la izquierda */}
           <div className="md:w-1/2 space-y-4 relative overflow-hidden">
             <AnimatePresence mode="wait">
@@ -305,7 +315,7 @@ export default function VistasSection() {
           
           {/* Carrusel de imágenes (estilo coverflow) a la derecha */}
           <div className="md:w-1/2 flex justify-center md:justify-end relative">
-            <div className="relative w-full flex items-center justify-center aspect-[9/16] md:aspect-[1/6] max-h-[80vh]">
+            <div className="relative w-full flex items-center justify-center aspect-[9/16] md:aspect-[1/6] max-h-[60vh]">
               {/* Efecto de brillo detrás de las imágenes */}
               <div className="absolute w-80 h-80 bg-primary-500/10 rounded-full blur-3xl transform translate-x-1/4"></div>
               
@@ -324,6 +334,7 @@ export default function VistasSection() {
                 let opacity = 1;
                 let rotateY = 0;
                 
+                // Ajustamos los valores según la posición
                 switch(position) {
                   case 'left':
                     positionClasses = 'left-[10%] md:left-[30%]';
@@ -395,7 +406,10 @@ export default function VistasSection() {
             </div>
           </div>
         </div>
+        
+        {/* Añadimos indicadores de navegación en la parte inferior */}
+        {renderIndicators()}
       </div>
-    </div>
+    </section>
   );
 }

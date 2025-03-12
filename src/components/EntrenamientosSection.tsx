@@ -100,17 +100,24 @@ export default function EntrenamientosSection() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1 }}
+            className="mb-12"
           >
-            <div className="flex flex-col items-end mb-12 text-right">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 relative">
+            <div className="flex flex-col items-end text-right">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 relative inline-block">
                 {sectionConfig.title}
-                <span className="absolute -bottom-2 right-0 w-24 h-1 bg-accent"></span>
+                <span className="absolute -bottom-1 right-0 w-24 h-1 bg-accent"></span>
               </h2>
               <p className="text-gray-300 max-w-2xl">
                 {sectionConfig.description}
               </p>
             </div>
-            
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+          >
             <div className="mb-12">
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-28">
                 <motion.div

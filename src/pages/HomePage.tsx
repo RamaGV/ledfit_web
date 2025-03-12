@@ -19,7 +19,7 @@ export default function HomePage() {
       <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       
       {/* Inicio Section */}
-      <div className="py-16">
+      <div className="py-8">
         <HeroSection />
       </div>
 
@@ -30,7 +30,7 @@ export default function HomePage() {
       <div className="container mx-auto  border-b border-gray-700 opacity-50"></div>
       
       {/* Funciones Section - Centrado - Carrusel */}
-      <div id="funciones" className="py-20">
+      <div id="funciones" className="py-8">
         <VistasSection />
       </div>
 

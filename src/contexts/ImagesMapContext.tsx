@@ -1,11 +1,11 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 
 // Importamos directamente las imágenes de entrenamientos
-import yogaIntermedioImage from '../assets/entrenamientos/yogaIntermedioImage.webp';
-import flexibilidadPrincipianteImage from '../assets/entrenamientos/flexibilidadPrincipianteImage.webp';
-import hiitParaPrincipiantesImage from '../assets/entrenamientos/hiitParaPrincipiantesImage.webp';
-import fuerzaTotalIntermedioImage from '../assets/entrenamientos/fuerzaTotalIntermedioImage.webp';
-import crossfitAvanzadoImage from '../assets/entrenamientos/crossfitAvanzadoImage.webp';
+import yogaIntermedioImage from '/images/entrenamientos/yogaIntermedioImage.webp';
+import flexibilidadPrincipianteImage from '/images/entrenamientos/flexibilidadPrincipianteImage.webp';
+import hiitParaPrincipiantesImage from '/images/entrenamientos/hiitParaPrincipiantesImage.webp';
+import fuerzaTotalIntermedioImage from '/images/entrenamientos/fuerzaTotalIntermedioImage.webp';
+import crossfitAvanzadoImage from '/images/entrenamientos/crossfitAvanzadoImage.webp';
 
 interface ImagesMap {
   [key: string]: string;

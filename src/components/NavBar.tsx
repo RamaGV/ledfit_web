@@ -63,7 +63,7 @@ export default function Navbar({ darkMode = false, toggleDarkMode }: NavbarProps
   );
 
   return (
-    <nav className="bg-gray-900/90 backdrop-blur-md border-b border-gray-800 py-3 px-4 fixed top-0 left-0 right-0 z-50">
+    <nav className="bg-gray-900/95 backdrop-blur-md border-b border-primary-800/50 py-3 px-4 fixed top-0 left-0 right-0 z-50 shadow-lg shadow-black/20">
       <div className="container-custom">
         {/* Contenedor principal - estructura Flexbox para el navbar */}
         <div className="flex items-center justify-between">
