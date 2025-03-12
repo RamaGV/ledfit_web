@@ -77,16 +77,6 @@ export default function FeatureCarousel() {
     }, 10000);
   };
   
-  // Obtener el orden correcto de las imágenes para el efecto coverflow
-  const getImageOrder = () => {
-    // Circular ordering para el carrusel
-    const ordering = [];
-    for (let i = 0; i < features.length; i++) {
-      ordering.push((activeIndex + i) % features.length);
-    }
-    return ordering;
-  }
-  
   // Obtener posición del carrusel
   const getImagePosition = (index: number) => {
     if (index === activeIndex) return 'center';
