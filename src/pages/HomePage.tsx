@@ -2,9 +2,9 @@ import { useState } from 'react';
 import AboutSection from '../components/AboutSection';
 import Navbar from '../components/NavBar';
 import HeroSection from '../components/HeroSection';
-import FeatureCarousel from '../components/FeatureCarousel';
+import VistasSection from '../components/VistasSection';
 import LEDSection from '../components/LEDSection';
-import EntrenamientosSeccion from '../components/EntrenamientosSeccion';
+import EntrenamientosSection from '../components/EntrenamientosSection';
 
 export default function HomePage() {
   const [darkMode, setDarkMode] = useState(false);
@@ -24,24 +24,22 @@ export default function HomePage() {
       </div>
 
       {/* Tablero LED Section - Izquierda */}
-      <div id="led" className="py-4">
-        <LEDSection />
-      </div>
+      <LEDSection />
       
       {/* Separador */}
-      <div className="container mx-auto my-24 border-b border-gray-700 opacity-50"></div>
+      <div className="container mx-auto  border-b border-gray-700 opacity-50"></div>
       
       {/* Funciones Section - Centrado - Carrusel */}
       <div id="funciones" className="py-20">
-        <FeatureCarousel />
+        <VistasSection />
       </div>
 
       {/* Separador */}
-      <div className="container mx-auto my-24 border-b border-gray-700 opacity-50"></div>
+      <div className="container mx-auto border-b border-gray-700 opacity-50"></div>
 
       {/* Entrenamientos Section - Derecha */}
       <div id="entrenamientos" className="py-4">
-        <EntrenamientosSeccion />
+        <EntrenamientosSection />
       </div>
 
       {/* Acerca de y Contacto Section */}

@@ -1,31 +1,18 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect, useMemo } from 'react';
-import FeatureCard from './FeatureCard';
-import WorkoutCarousel from './WorkoutCarousel';
-import WorkoutDetails from './WorkoutDetails';
+import FeatureCard from './VistasSeccion.tsx/FeatureCard';
+import WorkoutCarousel from './EntrenamientosSection/WorkoutCarousel';
+import WorkoutDetails from './EntrenamientosSection/WorkoutDetails';
 import { fetchFeaturedWorkouts } from '../services/workoutService';
 import { Workout } from '../types/workout';
+import {
+  categorias,
+  niveles,
+  defaultStatsData,
+  sectionConfig
+} from '../data/entrenamientosData';
 
-// Lista de categorías de entrenamiento
-const categorias = [
-  { id: 'todos', nombre: 'Todos', color: 'from-gray-500 to-gray-700' },
-  { id: 'cardio', nombre: 'Cardio', color: 'from-red-600 to-pink-600' },
-  { id: 'fuerza', nombre: 'Fuerza', color: 'from-blue-600 to-indigo-600' },
-  { id: 'boxeo', nombre: 'Boxeo', color: 'from-slate-600 to-gray-700' },
-  { id: 'circuito', nombre: 'Circuito', color: 'from-cyan-600 to-blue-500' },
-  { id: 'flexibilidad', nombre: 'Flexibilidad', color: 'from-teal-500 to-green-600' },
-  { id: 'yoga', nombre: 'Yoga', color: 'from-purple-600 to-violet-700' },
-  { id: 'pilates', nombre: 'Pilates', color: 'from-pink-500 to-rose-600' },
-];
-
-// Niveles de dificultad
-const niveles = [
-  { id: 'Principiante', color: 'bg-green-500 hover:bg-green-600', shadowColor: 'shadow-green-500/50' },
-  { id: 'Intermedio', color: 'bg-yellow-500 hover:bg-yellow-600', shadowColor: 'shadow-yellow-500/50' },
-  { id: 'Avanzado', color: 'bg-red-500 hover:bg-red-600', shadowColor: 'shadow-red-500/50' },
-];
-
-export default function EntrenamientosSeccion() {
+export default function EntrenamientosSection() {
   const [workouts, setWorkouts] = useState<Workout[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -98,9 +85,9 @@ export default function EntrenamientosSeccion() {
     const categoriasUnicas = new Set(workouts.map(w => w.grupo?.toLowerCase()));
     
     return {
-      totalWorkouts: workouts.length,
-      totalCategorias: categoriasUnicas.size || categorias.length - 1, // Restamos 'todos'
-      nuevosSemanales: 4 // Valor fijo o podría calcularse si tienes datos de fecha de creación
+      totalWorkouts: workouts.length || defaultStatsData.totalWorkouts,
+      totalCategorias: categoriasUnicas.size || defaultStatsData.totalCategorias,
+      nuevosSemanales: defaultStatsData.nuevosSemanales
     };
   }, [workouts]);
 
@@ -116,42 +103,63 @@ export default function EntrenamientosSeccion() {
           >
             <div className="flex flex-col items-end mb-12 text-right">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 relative">
-                Base de Datos de Entrenamientos
+                {sectionConfig.title}
                 <span className="absolute -bottom-2 right-0 w-24 h-1 bg-accent"></span>
               </h2>
               <p className="text-gray-300 max-w-2xl">
-                Accede a nuestra colección de entrenamientos personalizados para el tablero LED
+                {sectionConfig.description}
               </p>
             </div>
             
             <div className="mb-12">
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
-                <FeatureCard
-                  variant="value"
-                  valueText={`${statsData.totalWorkouts}+`}
-                  title="Entrenamientos"
-                  description="Rutinas completas desarrolladas por entrenadores profesionales para todos los niveles de condición física"
-                  valueColor="text-primary-400"
-                  bgGradient="from-primary-800/20 to-primary-900/40"
-                />
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-28">
+                <motion.div
+                  initial={{ opacity: 0, x: -100 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.7, ease: "easeOut" }}
+                  viewport={{ once: true }}
+                >
+                  <FeatureCard
+                    variant="value"
+                    valueText={`${statsData.totalWorkouts}+`}
+                    title={sectionConfig.featureCards[0].title}
+                    description={sectionConfig.featureCards[0].description}
+                    valueColor={sectionConfig.featureCards[0].valueColor}
+                    bgGradient={sectionConfig.featureCards[0].bgGradient}
+                  />
+                </motion.div>
                 
-                <FeatureCard
-                  variant="value"
-                  valueText={`${statsData.totalCategorias}`}
-                  title="Categorías"
-                  description="Especialidades como Cardio, Fuerza, Boxeo, Yoga, Pilates, Flexibilidad y entrenamientos combinados para objetivos específicos"
-                  valueColor="text-accent"
-                  bgGradient="from-accent/20 to-purple-900/40"
-                />
+                <motion.div
+                  initial={{ opacity: 0, y: 100 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <FeatureCard
+                    variant="value"
+                    valueText={`${statsData.totalCategorias}`}
+                    title={sectionConfig.featureCards[1].title}
+                    description={sectionConfig.featureCards[1].description}
+                    valueColor={sectionConfig.featureCards[1].valueColor}
+                    bgGradient={sectionConfig.featureCards[1].bgGradient}
+                  />
+                </motion.div>
                 
-                <FeatureCard
-                  variant="value"
-                  valueText={`${statsData.nuevosSemanales}`}
-                  title="Nuevos por semana"
-                  description="Nuestra biblioteca de entrenamientos crece constantemente para ofrecerte siempre nuevos desafíos y mantener tu motivación"
-                  valueColor="text-primary-300"
-                  bgGradient="from-blue-800/20 to-blue-900/40"
-                />
+                <motion.div
+                  initial={{ opacity: 0, x: 100 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
+                  viewport={{ once: true }}
+                >
+                  <FeatureCard
+                    variant="value"
+                    valueText={`${statsData.nuevosSemanales}`}
+                    title={sectionConfig.featureCards[2].title}
+                    description={sectionConfig.featureCards[2].description}
+                    valueColor={sectionConfig.featureCards[2].valueColor}
+                    bgGradient={sectionConfig.featureCards[2].bgGradient}
+                  />
+                </motion.div>
               </div>
             </div>
             

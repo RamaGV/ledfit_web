@@ -1,4 +1,4 @@
-import { useImagesMap } from '../contexts/ImagesMapContext';
+import { useImagesMap } from '../../contexts/ImagesMapContext';
 
 interface WorkoutCardProps {
   imageUrl: string;

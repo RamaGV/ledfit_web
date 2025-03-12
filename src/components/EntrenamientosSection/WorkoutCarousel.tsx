@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
-import { Workout } from '../types/workout';
+import { Workout } from '../../types/workout';
 import { motion } from 'framer-motion';
-import WorkoutCard from './EntrenamientosSection/WorkoutCard';
+import WorkoutCard from './WorkoutCard';
 
 // Función para formatear el tiempo total en minutos:segundos
 const formatDuration = (seconds: number): string => {

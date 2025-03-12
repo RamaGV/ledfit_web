@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import NavbarLink from './NavbarLink';
+import NavbarLink from './NavbBar/NavbarLink';
 
 interface NavbarProps {
   darkMode?: boolean;

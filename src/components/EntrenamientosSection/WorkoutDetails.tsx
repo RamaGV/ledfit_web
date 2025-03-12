@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import { Workout } from '../types/workout';
-import { useImagesMap } from '../contexts/ImagesMapContext';
+import { Workout } from '../../types/workout';
+import { useImagesMap } from '../../contexts/ImagesMapContext';
 
 // Función para formatear el tiempo total en minutos:segundos
 const formatDuration = (seconds: number): string => {

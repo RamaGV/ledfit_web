@@ -13,7 +13,7 @@ interface FeatureContent {
 }
 
 export default function FeatureCarousel() {
-  const [activeIndex, setActiveIndex] = useState(1); // Empezamos con el índice 1 (centro)
+  const [activeIndex, setActiveIndex] = useState(1);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   
   // Contenido para cada característica del carrusel
@@ -106,7 +106,7 @@ export default function FeatureCarousel() {
   return (
     <div className="overflow-hidden">
       <div className="container-custom">
-        <div className="text-center mb-16">
+        <div className="text-center mb-0">
           <div className="relative inline-block">
             <motion.h2
               initial={{ opacity: 0, y: 10 }}
@@ -116,14 +116,14 @@ export default function FeatureCarousel() {
             >
               Vistas de la Aplicación
             </motion.h2>
-            <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-green-500"></span>
+            <span className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-green-500"></span>
           </div>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto mt-6">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto mt-1">
             Herramientas especializadas para entrenamiento eficiente con displays LED de 7 segmentos que te ayudan a seguir tu rutina.
           </p>
         </div>
         
-        <div className="flex flex-col md:flex-row gap-8 items-center">
+        <div className="flex flex-col md:flex-row  items-center">
           {/* Información detallada a la izquierda */}
           <div className="md:w-1/2 space-y-4 relative overflow-hidden">
             <AnimatePresence mode="wait">
@@ -304,10 +304,10 @@ export default function FeatureCarousel() {
           </div>
           
           {/* Carrusel de imágenes (estilo coverflow) a la derecha */}
-          <div className="md:w-1/2 flex justify-center md:justify-end relative h-[500px] md:h-[450px] py-8">
-            <div className="relative w-full h-full flex items-center justify-center">
+          <div className="md:w-1/2 flex justify-center md:justify-end relative">
+            <div className="relative w-full flex items-center justify-center aspect-[9/16] md:aspect-[1/6] max-h-[80vh]">
               {/* Efecto de brillo detrás de las imágenes */}
-              <div className="absolute w-64 h-64 bg-primary-500/10 rounded-full blur-3xl transform translate-x-1/4"></div>
+              <div className="absolute w-80 h-80 bg-primary-500/10 rounded-full blur-3xl transform translate-x-1/4"></div>
               
               {/* Mostrar todas las imágenes con diferentes posiciones y escalas */}
               {features.map((feature, index) => {
@@ -327,31 +327,31 @@ export default function FeatureCarousel() {
                 switch(position) {
                   case 'left':
                     positionClasses = 'left-[10%] md:left-[30%]';
-                    scale = 0.8;
+                    scale = 0.65;
                     zIndex = 10;
                     opacity = 0.5;
-                    rotateY = 15;
+                    rotateY = -15;
                     break;
                   case 'center':
-                    positionClasses = 'left-1/2 transform -translate-x-1/2';
+                    positionClasses = 'left-1/2 transform translate-x-1/2';
                     scale = 1;
                     zIndex = 20;
                     opacity = 1;
                     rotateY = 0;
                     break;
                   case 'right':
-                    positionClasses = 'right-[10%] md:right-[-10%]';
-                    scale = 0.8;
+                    positionClasses = 'right-[10%] md:right-[-15%]';
+                    scale = 0.65;
                     zIndex = 10;
                     opacity = 0.5;
-                    rotateY = -15;
+                    rotateY = 15;
                     break;
                 }
                 
                 return (
                   <motion.div
                     key={index}
-                    className={`absolute ${positionClasses} cursor-pointer top-1/2 transform -translate-y-1/2`}
+                    className={`absolute ${positionClasses} cursor-pointer top-1/2 transform -translate-y-1/2 `}
                     initial={false}
                     animate={{
                       scale,
@@ -367,11 +367,11 @@ export default function FeatureCarousel() {
                     onClick={() => handleImageClick(index)}
                     style={{ zIndex }}
                   >
-                    <div className={`relative overflow-hidden rounded-xl shadow-2xl border ${isActive ? 'border-primary-500' : 'border-gray-700'} max-w-[250px]`}>
+                    <div className={`relative overflow-hidden rounded-xl shadow-2xl border ${isActive ? 'border-primary-500' : 'border-gray-700'} w-[80vw] max-w-[280px] ${isActive ? 'aspect-[9/19]' : 'aspect-[9/19]'}`}>
                       <img 
                         src={feature.image} 
                         alt={`${feature.title} captura de pantalla`} 
-                        className="w-full h-auto"
+                        className="w-full h-full object-cover object-top"
                       />
                       
                       {feature.percentage && isActive && (

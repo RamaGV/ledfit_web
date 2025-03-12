@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function HeroSection() {
   return (
-    <section id="inicio" className="py-16 border-b border-gray-800 mb-24">
+    <section id="inicio" className="py-16 border-b border-gray-800">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
